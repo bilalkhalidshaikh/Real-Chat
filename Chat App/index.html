@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real Chat</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="./images/icons8-chat-48.png"
+      type="image/x-icon"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <section id="view">
+      <header>
+        <strong class="h1 title text-center"
+          >Welcome to Real <i class="far fa-comment-alt"></i> Chat</strong
+        >
+        <br />
+        <br />
+        <h2 class="h2">Connect with your friends</h2>
+      </header>
+      <hr />
+      <section id="fbAuth">
+        <strong class="h3 text-center title2"
+          ><i class="fas fa-sign-in-alt"></i> Login with</strong
+        >
+        <br />
+        <br />
+        <span class="facebook" id="facebook"
+          ><img src="https://img.icons8.com/color/144/000000/facebook-new.png"
+        /></span>
+        <em>or</em>
+        <span id="google" class="google"
+          ><img src="https://img.icons8.com/color/144/000000/google-logo.png"
+        /></span>
+      </section>
+    </section>
+
+    <main id="main">
+      <div class="container" id="chat">
+        <div class="s-layout">
+          <div class="s-layout__sidebar">
+            <a class="s-sidebar__trigger" href="#0">
+              <i class="fa fa-bars"></i>
+            </a>
+
+            <nav class="s-sidebar__nav">
+              <ul>
+                <li>
+                  <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                      <img
+                        width="30"
+                        height="30"
+                        class="d-inline-block align-top rounded-circle avatar"
+                        alt="Avatar"
+                        loading="lazy"
+                        id="navavatar"
+                      />
+                      &nbsp;
+                      <span id="userName">
+                        <strong> </strong>
+                      </span>
+                    </a>
+                  </div>
+                  <hr />
+                </li>
+                <li>
+                  <a class="s-sidebar__nav-link" href="#0">
+                    <i class="fa fa-home"></i><em>Home</em>
+                  </a>
+                </li>
+                <li>
+                  <a class="s-sidebar__nav-link" href="#0">
+                    <i class="fa fa-user"></i><em id="myprofile">My Profile</em>
+                  </a>
+                </li>
+                <li>
+                  <a class="s-sidebar__nav-link" href="#0" id="signout">
+                    <i class="fas fa-sign-out-alt"></i><em>SignOut</em>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- Content -->
+          <section class="s-layout__content">
+            <div class="chat container">
+              <!-- Navigation -->
+              <!-- <div class="container chat-header">
+                <img
+                  width="50px"
+                  height="50px"
+                  alt="avatar"
+                  id="avatar"
+                  class="rounded-circle d-inline-block align-top avatar"
+                />
+                <span id="username"><strong class="h3 text-center"></strong></span>
+              </div> -->
+
+              <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+                <div class="container-fluid">
+                  <div class="d-inline-block">
+                    <a class="navbar-brand" href="#">
+                      <img
+                        width="50"
+                        height="50"
+                        class="d-inline-block align-top rounded-circle"
+                        alt="Avatar"
+                        loading="lazy"
+                        id="avatar"
+                      />
+                      <span id="username"
+                        ><strong
+                          class="h3 text-center navbar-toggler-icon"
+                          style="margin-top: 10px !important"
+                        ></strong
+                      ></span>
+                    </a>
+                  </div>
+                </div>
+              </nav>
+
+              <hr />
+              <div class="message-container container" id="messagecontainer">
+                <ul id="msglist"></ul>
+              </div>
+              &nbsp;
+              <section class="input-container container" id="input-container">
+                <form>
+                  <div class="input-group mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="message"
+                      placeholder="TypeMessage"
+                      aria-label="Recipient's username"
+                      aria-describedby="button-addon2"
+                      autofocus
+                    />
+                    <button
+                      class="btn btn-outline-secondary sendbtn"
+                      type="button"
+                      id="sendmessage"
+                    >
+                      <i class="fas fa-location-arrow"></i>
+                      <div class="btn-group dropup">
+                        <button
+                          type="button"
+                          class="btn btn-secondary dropdown-toggle"
+                          data-toggle="dropdown"
+                          aria-expanded="false"
+                        ></button>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-item" id="sendimage">
+                            <label for="imagefile"
+                              ><input
+                                type="file"
+                                name="image"
+                                id="imagefile" /><i class="fa fa-images"></i
+                            ></label>
+                          </li>
+                          <li class="dropdown-item" id="sendvideo">
+                            <label for="videofile"
+                              ><input
+                                type="file"
+                                name="video"
+                                id="videofile" /><i class="fa fa-video"></i
+                            ></label>
+                          </li>
+
+                          <li class="dropdown-item" id="sendaudio">
+                            <label for="audiofile"
+                              ><input
+                                type="file"
+                                name="audio"
+                                id="audiofile" /><i
+                                class="fa fa-microphone-alt"
+                              ></i
+                            ></label>
+                          </li>
+                        </ul>
+                      </div>
+                    </button>
+                  </div>
+                </form>
+              </section>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script defer src="./App.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-storage.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
